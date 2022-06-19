@@ -1,0 +1,43 @@
+<div>
+  <div class="row fondo">
+    <div class="mx-auto">
+      <button class="btn btn-danger" (click)="VolverAlMenu()">Volver al menu principal</button>
+    </div>
+  </div>
+</div>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre Anime</th>
+      <th scope="col">Puntuacion</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Notas</th>
+      <th>Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let relacionUsuarioAnime of relacionesUsuarioAnime.listadoRelacionUsuarioAnime">
+      <td>
+        <div><img class="ajustarImagen zoom" src="/assets/imagenes/{{relacionUsuarioAnime.nombreAnime}}.jpg" alt="image">
+        </div>
+      </td>
+      <td class="centrarTexto">{{relacionUsuarioAnime.nombreAnime}}</td>
+      <td class="centrarTexto">{{relacionUsuarioAnime.puntuacion}}/10</td>
+      <td class="centrarTexto">{{relacionUsuarioAnime.estado}}</td>
+      <td class="centrarTexto">{{relacionUsuarioAnime.notas}}</td>
+      <td class="centrarTexto">
+        <div><button class="btn btn-outline-dark" (click)="VerInformacion(relacionUsuarioAnime.idAnime)">Ver
+            Informacion</button></div>
+        <div><button class="btn btn-outline-dark" (click)="ModificarRelacion(relacionUsuarioAnime.id)">Modificar
+            Valores</button></div>
+        <div><button class="btn btn-outline-dark" (click)="BorrarRelacion(relacionUsuarioAnime.id)">Eliminar de mi
+            lista</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="ComprobarListadoVacio()" class="centrarTexto">
+  <div>No tiene ningun anime añadido a su lista</div>
+</div>

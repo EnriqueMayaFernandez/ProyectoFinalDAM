@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre Anime</th>
+      <th scope="col">Estudio Animacion</th>
+      <th scope="col">Fecha Emision</th>
+      <th scope="col">Fecha Finalizacion</th>
+      <th scope="col">Numero Capitulos</th>
+      <th scope="col">Genero</th>
+      <th>Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let anime of animes.listaAnimes">
+      <td>
+        <div class="zoom"><img class="ajustarImagen" src="/assets/imagenes/{{anime.nombreAnime}}.jpg" alt="image"></div>
+      </td>
+      <td class="centrarTexto">{{anime.nombreAnime}}</td>
+      <td class="centrarTexto">{{anime.estudioAnimacion}}</td>
+      <td class="centrarTexto">{{anime.fechaEmision}}</td>
+      <td class="centrarTexto">{{anime.fechaFinalizacion}}</td>
+      <td class="centrarTexto">{{anime.numeroCapitulos}}</td>
+      <td class="centrarTexto">{{anime.genero.nombreGenero}}</td>
+      <td class="centrarTexto">
+        <div *ngIf="!ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="InsertarRelacionUsuarioAnime(anime.id,anime.nombreAnime)">Agregar a mi lista</button></div>
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark" (click)="InsertarAnime()">Insertar</button>
+        </div>
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="BorrarAnime(anime.id)">Borrar</button></div>
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="ModificarAnime(anime.id)">Modificar</button></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="ComprobarListadoVacio() && ComprobarUsuario()" class="centrarTexto">
+  <td></td><button (click)="InsertarAnime()" class="btn btn-outline-dark">Insertar Anime Nuevo</button>
+</div>
+<div *ngIf="ComprobarListadoVacio() && !ComprobarUsuario()" class="centrarTexto">
+  <div>De momento no tenemos animes en nuestra lista, perdone las molestias</div>
+</div>

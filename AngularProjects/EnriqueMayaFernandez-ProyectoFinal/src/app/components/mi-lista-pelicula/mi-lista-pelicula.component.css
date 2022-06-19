@@ -1,0 +1,11 @@
+.centrarTexto{
+  text-align: center;
+  vertical-align: middle;
+}
+.ajustarImagen{
+  width: 110px;
+  height: 110px;
+}
+.fondo{
+  background-color: #4da6ff;
+}

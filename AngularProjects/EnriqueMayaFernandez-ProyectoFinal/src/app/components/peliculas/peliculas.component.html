@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre Pelicula</th>
+      <th scope="col">Director</th>
+      <th scope="col">Fecha Emision</th>
+      <th scope="col">Duracion</th>
+      <th scope="col">Genero</th>
+      <th>Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pelicula of peliculas.listaPeliculas">
+      <td>
+        <div class="zoom"><img class="ajustarImagen" src="/assets/imagenes/{{pelicula.nombrePelicula}}.jpg" alt="image">
+        </div>
+      </td>
+      <td class="centrarTexto">{{pelicula.nombrePelicula}}</td>
+      <td class="centrarTexto">{{pelicula.director}}</td>
+      <td class="centrarTexto">{{pelicula.fechaEmision}}</td>
+      <td class="centrarTexto">{{pelicula.duracion}} h</td>
+      <td class="centrarTexto">{{pelicula.genero.nombreGenero}}</td>
+      <td class="centrarTexto">
+        <div *ngIf="!ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="InsertarRelacionUsuarioPelicula(pelicula.id,pelicula.nombrePelicula)">Agregar a mi lista</button>
+        </div>
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+          (click)="InsertarPelicula(pelicula.id)">Insertar</button></div>
+          <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="BorrarPelicula(pelicula.id)">Borrar</button></div>
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="ModificarPelicula(pelicula.id)">Modificar</button></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="ComprobarListadoVacio() && ComprobarUsuario()" class="centrarTexto">
+  <td></td><button (click)="InsertarPelicula()" class="btn btn-outline-dark">Insertar Pelicula Nueva</button>
+</div>
+<div *ngIf="ComprobarListadoVacio() && !ComprobarUsuario()" class="centrarTexto">
+  <div>De momento no tenemos peliculas en nuestra lista, perdone las molestias</div>
+</div>

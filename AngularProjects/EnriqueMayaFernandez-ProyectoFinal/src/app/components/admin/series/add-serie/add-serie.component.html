@@ -1,0 +1,51 @@
+<div class="centrar"></div>
+<div class="container col-md-5 mt-3">
+  <div class="card">
+    <div class="card-header">
+      <div class="centrarTexto">
+        <h1>Agregar Serie:</h1>
+      </div>
+    </div>
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <label>Nombre:</label>
+          <input id="nombreSerie" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Director:</label>
+          <input id="director" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Fecha de Emision:</label>
+          <input id="fechaEmision" type="date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Fecha de Finalizacion:</label>
+          <input id="fechaFinalizacion" name="fechaEmision" type="date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Numero de Capitulos:</label>
+          <input id="numeroCapitulos" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Genero:</label>
+          <select class="browser-default custom-select" id="genero">
+            <option *ngFor="let genero of listaGeneros.listaGeneros" value="{{genero.id}}">{{genero.nombreGenero}}
+            </option>
+          </select>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="mx-auto">
+              <button (click)="InsertarSerie()" class="btn btn-danger" type="submit">Guardar</button>
+            </div>
+            <div class="mx-auto">
+              <button (click)="Volver()" class="btn btn-danger">Volver</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

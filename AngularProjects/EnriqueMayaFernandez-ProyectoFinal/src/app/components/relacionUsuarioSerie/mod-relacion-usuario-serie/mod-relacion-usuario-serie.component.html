@@ -1,0 +1,108 @@
+<div class="fondo">
+  <div class="centrar"></div>
+  <div class="container col-md-5 mt-3">
+    <div class="card">
+      <div class="card-header" style="background-color:#4da6ff">
+        <div class="centrarTexto">
+          <h1>Modificar Serie:</h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <form id="relacionForm">
+          <div class="form-group">
+            <label>Nombre Serie:</label>
+            <input id="nombreSerie" class="form-control" disabled>
+          </div>
+          <div class="form-group">
+            <label>Estado:</label>
+            <select class="form-control" id="estado" class="form-control">
+              <option>Visto</option>
+              <option>Planeado para verlo</option>
+              <option>Pausado</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Puntuacion:</label>
+            <div class="row" style="margin-left:10px;">
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion1" value="1">
+                <label class="form-check-label" for="exampleRadios1">
+                  1
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion2" value="2">
+                <label class="form-check-label" for="exampleRadios1">
+                  2
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion3" value="3">
+                <label class="form-check-label" for="exampleRadios1">
+                  3
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion4" value="4">
+                <label class="form-check-label" for="exampleRadios1">
+                  4
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion5" value="5" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  5
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion6" value="6">
+                <label class="form-check-label" for="exampleRadios1">
+                  6
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion7" value="7">
+                <label class="form-check-label" for="exampleRadios1">
+                  7
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion8" value="8">
+                <label class="form-check-label" for="exampleRadios1">
+                  8
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion9" value="9">
+                <label class="form-check-label" for="exampleRadios1">
+                  9
+                </label>
+              </div>
+              <div class="col-1">
+                <input class="form-check-input" type="radio" name="radioPuntuacion" id="puntuacion10" value="10">
+                <label class="form-check-label" for="exampleRadios1">
+                  10
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea2">Observaciones:</label>
+            <textarea class="form-control rounded-0" id="notas" rows="5" cols="50"></textarea>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="mx-auto">
+                <button (click)="ModificarRelacionUsuarioSerie()" class="btn" style="background-color:#80bfff">Aplicar Cambios</button>
+              </div>
+              <div class="mx-auto">
+                <button (click)="Volver()" class="btn" style="background-color:#80bfff">Volver</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="centrar"></div>
+</div>

@@ -1,0 +1,38 @@
+<div class="fondo">
+  <div class="centrar"></div>
+  <div class="container col-md-5">
+    <div class="card">
+      <div class="card-header" style="background-color:#4da6ff">
+        <div class="centrarTexto">
+          <h1> Login</h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input id="nombreUsuario" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Clave:</label>
+            <input id="clave" type="password" class="form-control">
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="mx-auto">
+                <button class="btn" style="background-color:#80bfff" (click)="Logearse()">Entrar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="mx-auto">
+            <a [routerLink]="['../registro']" routerLinkActive="router-link-active">Registrarse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="centrar">
+  </div>
+</div>

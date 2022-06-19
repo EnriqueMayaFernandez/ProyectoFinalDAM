@@ -1,0 +1,14 @@
+.centrar{
+  height: 71px;
+}
+
+.centrarTexto{
+  text-align: center;
+}
+.ajustarImagen{
+  width: 110px;
+  height: 110px;
+}
+.fondo{
+  background-color: #cce6ff;
+}

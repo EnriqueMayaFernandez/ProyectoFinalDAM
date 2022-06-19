@@ -1,0 +1,43 @@
+<div>
+  <div class="row fondo">
+    <div class="mx-auto">
+      <button class="btn btn-danger" (click)="VolverAlMenu()">Volver al menu principal</button>
+    </div>
+  </div>
+</div>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre Pelicula</th>
+      <th scope="col">Puntuacion</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Notas</th>
+      <th>Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let relacionUsuarioPelicula of relacionesUsuarioPelicula.listadoRelacionUsuarioPelicula">
+      <td>
+        <div><img class="ajustarImagen" src="/assets/imagenes/{{relacionUsuarioPelicula.nombrePelicula}}.jpg" alt="image">
+        </div>
+      </td>
+      <td class="centrarTexto">{{relacionUsuarioPelicula.nombrePelicula}}</td>
+      <td class="centrarTexto">{{relacionUsuarioPelicula.puntuacion}}/10</td>
+      <td class="centrarTexto">{{relacionUsuarioPelicula.estado}}</td>
+      <td class="centrarTexto">{{relacionUsuarioPelicula.notas}}</td>
+      <td class="centrarTexto">
+        <div><button class="btn btn-outline-dark" (click)="VerInformacion(relacionUsuarioPelicula.idPelicula)">Ver
+            Informacion</button></div>
+        <div><button class="btn btn-outline-dark" (click)="ModificarRelacion(relacionUsuarioPelicula.id)">Modificar
+            Valores</button></div>
+        <div><button class="btn btn-outline-dark" (click)="BorrarRelacion(relacionUsuarioPelicula.id)">Eliminar de mi
+            lista</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="ComprobarListadoVacio()" class="centrarTexto">
+  <div>No tiene ninguna pelicula añadida a su lista</div>
+</div>

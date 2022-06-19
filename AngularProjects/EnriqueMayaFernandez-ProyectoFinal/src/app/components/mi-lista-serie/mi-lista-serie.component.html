@@ -1,0 +1,43 @@
+<div>
+  <div class="row fondo">
+    <div class="mx-auto">
+      <button class="btn btn-danger" (click)="VolverAlMenu()">Volver al menu principal</button>
+    </div>
+  </div>
+</div>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre Serie</th>
+      <th scope="col">Puntuacion</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Notas</th>
+      <th>Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let relacionUsuarioSerie of relacionesUsuarioSerie.listadoRelacionUsuarioSerie">
+      <td>
+        <div><img class="ajustarImagen" src="/assets/imagenes/{{relacionUsuarioSerie.nombreSerie}}.jpg" alt="image">
+        </div>
+      </td>
+      <td class="centrarTexto">{{relacionUsuarioSerie.nombreSerie}}</td>
+      <td class="centrarTexto">{{relacionUsuarioSerie.puntuacion}}/10</td>
+      <td class="centrarTexto">{{relacionUsuarioSerie.estado}}</td>
+      <td class="centrarTexto">{{relacionUsuarioSerie.notas}}</td>
+      <td class="centrarTexto">
+        <div><button class="btn btn-outline-dark" (click)="VerInformacion(relacionUsuarioSerie.idSerie)">Ver
+            Informacion</button></div>
+        <div><button class="btn btn-outline-dark" (click)="ModificarRelacion(relacionUsuarioSerie.id)">Modificar
+            Valores</button></div>
+        <div><button class="btn btn-outline-dark" (click)="BorrarRelacion(relacionUsuarioSerie.id)">Eliminar de mi
+            lista</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="ComprobarListadoVacio()" class="centrarTexto">
+  <div>No tiene ninguna serie añadida a su lista</div>
+</div>

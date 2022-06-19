@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre Serie</th>
+      <th scope="col">Director</th>
+      <th scope="col">Fecha Emision</th>
+      <th scope="col">Fecha Finalizacion</th>
+      <th scope="col">Numero Capitulos</th>
+      <th scope="col">Genero</th>
+      <th>Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let serie of series.listaSeries">
+      <td>
+        <div class="zoom"><img class="ajustarImagen" src="/assets/imagenes/{{serie.nombreSerie}}.jpg" alt="image"></div>
+      </td>
+      <td class="centrarTexto">{{serie.nombreSerie}}</td>
+      <td class="centrarTexto">{{serie.director}}</td>
+      <td class="centrarTexto">{{serie.fechaEmision}}</td>
+      <td class="centrarTexto">{{serie.fechaFinalizacion}}</td>
+      <td class="centrarTexto">{{serie.numeroCapitulos}} h</td>
+      <td class="centrarTexto">{{serie.genero.nombreGenero}}</td>
+      <td class="centrarTexto">
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+          (click)="InsertarSerie(serie.id)">Insertar</button></div>
+          <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="BorrarSerie(serie.id)">Borrar</button></div>
+        <div *ngIf="!ComprobarUsuario()"><button class="btn btn-outline-dark" (click)="InsertarRelacionUsuarioAnime(serie.id,serie.nombreSerie)">Agregar a mi lista</button></div>
+        <div *ngIf="ComprobarUsuario()"><button class="btn btn-outline-dark"
+            (click)="ModificarSerie(serie.id)">Modificar</button></div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="ComprobarListadoVacio() && ComprobarUsuario()" class="centrarTexto">
+  <td></td><button (click)="InsertarSerie()" class="btn btn-outline-dark">Insertar Serie Nueva</button>
+</div>
+<div *ngIf="ComprobarListadoVacio() && !ComprobarUsuario()" class="centrarTexto">
+  <div>De momento no tenemos series en nuestra lista, perdone las molestias</div>
+</div>

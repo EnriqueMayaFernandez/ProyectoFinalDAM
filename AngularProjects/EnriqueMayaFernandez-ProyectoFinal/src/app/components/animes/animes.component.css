@@ -1,0 +1,17 @@
+.centrarTexto{
+  text-align: center;
+  vertical-align: middle;
+}
+.ajustarImagen{
+  width: 90px;
+  height: 90px;
+}
+
+.zoom {
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(2);
+}

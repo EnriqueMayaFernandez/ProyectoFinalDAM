@@ -1,0 +1,30 @@
+<div>
+  <div class="row fondo">
+    <div class="mx-auto">
+      <button class="btn btn-danger" (click)="VolverAlMenu()">Volver al menu principal</button>
+    </div>
+  </div>
+</div>
+<table class="table centrarTexto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre Usuario</th>
+      <th scope="col">Contraseña</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Acciones:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios.listaUsuarios">
+      <td class="centrarTexto">{{usuario.nombreUsuario}}</td>
+      <td class="centrarTexto">{{usuario.clave}}</td>
+      <td class="centrarTexto">{{usuario.rol.tipo}}</td>
+      <td class="centrarTexto">
+        <div><button class="btn btn-outline-dark" *ngIf="ComprobarUsuariosEsenciales(usuario.nombreUsuario)" (click)="InsertarUsuario(usuario.id)">Insertar</button></div>
+        <div><button class="btn btn-outline-dark" *ngIf="!ComprobarUsuariosEsenciales(usuario.nombreUsuario)" (click)="BorrarUsuario(usuario.id)">Borrar</button></div>
+        <div><button class="btn btn-outline-dark" *ngIf="!ComprobarUsuariosEsenciales(usuario.nombreUsuario)" (click)="ModificarUsuario(usuario.id)">Modificar</button></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
